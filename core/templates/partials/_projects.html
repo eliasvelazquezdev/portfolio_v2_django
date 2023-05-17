@@ -1,0 +1,60 @@
+{% load static %}
+
+<section id="projects" style="margin-bottom: 8rem;">
+    <div class="row mb-4">
+        <h2 class="title">Proyectos</h2>
+        <p>Estos son los distintos proyectos en los que estuve trabajando solo o en equipo.</p>
+    </div>
+
+    <!-- Proyecto -->
+    <div class="row mb-3">
+        <div class="col-12 col-md-6">
+            <h4 class=""><i class="fas fa-briefcase me-2"></i>¿Dónde me atiendo?</h4>
+            <p>Guía de hospitales públicos de la Ciudad Autónoma de Buenos Aires</p>
+            <button class="btn btn-primary"
+                    type="button"
+                    data-bs-toggle="offcanvas" 
+                    data-bs-target="#offcanvasProject" 
+                    aria-controls="offcanvasProject" 
+                    style="background-color: #2a4f9d;">
+                    Ver más
+            </button>
+        </div>
+    </div>
+
+    <aside id="project">
+        <div class="offcanvas offcanvas-end text-light" data-bs-scroll="false" tabindex="-1" id="offcanvasProject" aria-labelledby="offcanvasProject" data-bs-theme="dark">
+            <div class="offcanvas-header">
+                <h6 class="offcanvas-title" id="offcanvasProjectLabel">¿Dónde me atiendo?</h6>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <hr class="mt-0">
+            <div class="offcanvas-body">
+                <img class="img-fluid mb-3 d-block mx-auto" width="600px" src="{% static 'assets/img/proyectos/donde_me_atiendo_thumb1.png' %}" alt="">
+                <h2 class="offcanvas-title" id="offcanvasProjectLabel">¿Dónde me atiendo?</h2>
+                <p class="fw-lighter text-secondary">Guía de hospitales públicos de la Ciudad de Buenos Aires</p>
+        
+                <p class="mb-0">Tecnologías utilizadas</p>
+        
+                <div class="fs-3 mb-3">
+                    <i class="fab fa-html5 me-2" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="HTML5"></i>
+                    <i class="fab fa-css3-alt me-2" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="CSS3"></i>
+                    <i class="fab fa-bootstrap me-2" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Bootstrap 5"></i>
+                    <i class="fab fa-js me-2" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="JavaScript"></i>
+                    <i class="devicon-django-plain me-2" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Django"></i>
+                    <i class="devicon-mysql-plain me-2" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="MySQL"></i>
+        
+                </div>
+        
+                <h4>Descripción</h4>
+        
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur facere non tempore facilis nostrum unde, illum laboriosam hic, sed quo alias eaque, totam expedita exercitationem at dolores quidem debitis doloremque?</p>
+        
+                <div class="col-12 d-flex flex-column">
+                    <a href="#" target="_blank" class="general-link text-decoration-none link-light mb-2"><i class="fas fa-arrow-up-right-from-square me-2"></i>Deploy</a>
+                    <a href="#" target="_blank" class="general-link text-decoration-none link-light"><i class="fab fa-github me-2"></i>Repositorio</a>
+                </div>
+            </div>
+        </div>
+    </aside>
+</section>

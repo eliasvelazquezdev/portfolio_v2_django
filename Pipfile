@@ -6,8 +6,13 @@ name = "pypi"
 [packages]
 django = "*"
 pillow = "*"
+python-decouple = "*"
+django-mobi2 = "*"
 
 [dev-packages]
 
 [requires]
 python_version = "3.11"
+
+[scripts]
+server = "python manage.py runserver"

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block aside %}
+    <aside>
+        <div class="container w-25 float-start vh-100 overflow-y-scroll overflow-x-hidden p-0 d-md-block d-none">
+            {% include 'partials/_header.html' %}
+
+            <!-- Menu -->
+            {% include 'partials/_menu.html' %}
+
+            <!-- Competencias -->
+            {% include 'partials/_skills.html' %}
+            <hr>
+            <!-- Contacto -->
+            {% include 'partials/_contact.html' %}
+        </div>
+    </aside>
+{% endblock aside %}
+    
+
+{% block main_content %}
+   <!-- Cuerpo desktop -->
+    <div class="container-fluid w-75 vh-100 overflow-y-scroll">
+        <div class="row">
+            <div class="col-12 navbar mt-0 pt-0">
+                <img class="img-fluid" src="{% static 'assets/img/banner.png' %}" alt="">
+            </div>
+            
+            {% include 'partials/_about.html' %}
+        </div>
+        
+        <hr>
+
+        <!-- Certificados -->
+        {% include 'partials/_certificates.html' %}
+
+        <hr>
+
+        <!-- Proyectos -->
+        {% include 'partials/_projects.html' %}
+    </div> 
+{% endblock main_content %}
+    
+    
+
+
+
