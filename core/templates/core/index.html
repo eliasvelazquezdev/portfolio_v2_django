@@ -1,20 +1,20 @@
-{% extends 'base.html' %}
+{% extends 'core/base.html' %}
 {% load static %}
 
 
 {% block aside %}
     <aside>
         <div class="container w-25 float-start vh-100 overflow-y-scroll overflow-x-hidden p-0 d-md-block d-none">
-            {% include 'partials/_header.html' %}
+            {% include 'core/partials/_header.html' %}
 
             <!-- Menu -->
-            {% include 'partials/_menu.html' %}
+            {% include 'core/partials/_menu.html' %}
 
             <!-- Competencias -->
-            {% include 'partials/_skills.html' %}
+            {% include 'core/partials/_skills.html' %}
             <hr>
             <!-- Contacto -->
-            {% include 'partials/_contact.html' %}
+            {% include 'core/partials/_contact.html' %}
         </div>
     </aside>
 {% endblock aside %}
@@ -28,18 +28,18 @@
                 <img class="img-fluid" src="{% static 'assets/img/banner.png' %}" alt="">
             </div>
             
-            {% include 'partials/_about.html' %}
+            {% include 'core/partials/_about.html' %}
         </div>
         
         <hr>
 
         <!-- Certificados -->
-        {% include 'partials/_certificates.html' %}
+        {% include 'core/partials/_certificates.html' %}
 
         <hr>
 
         <!-- Proyectos -->
-        {% include 'partials/_projects.html' %}
+        {% include 'portfolio/partials/_projects.html' %}
     </div> 
 {% endblock main_content %}
     

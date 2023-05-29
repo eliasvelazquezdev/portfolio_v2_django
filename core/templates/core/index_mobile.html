@@ -1,0 +1,38 @@
+{% extends 'core/base.html' %}
+
+
+{% block header %}
+    {% include 'core/partials/_header.html' %}
+{% endblock header %}
+    
+
+{% block main_content %}
+    <!-- Cuerpo mobile -->
+    <div class="container-fluid">
+        {% include 'core/partials/_menu.html' %}
+
+        <div class="row">
+            {% include 'core/partials/_about.html' %}
+        </div>
+
+        <hr>
+
+        <!-- Competencias -->
+        {% include 'core/partials/_skills.html' %}
+
+        <hr>
+
+        <!-- Certificados -->
+        {% include 'core/partials/_certificates.html' %}
+
+        <hr>
+
+        <!-- Proyectos -->
+        {% include 'portfolio/partials/_projects.html' %}
+
+        <hr>
+
+        <!-- Contacto -->
+        {% include 'core/partials/_contact.html' %}
+    </div>
+{% endblock main_content %}

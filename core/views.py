@@ -6,9 +6,9 @@ from mobi2.decorators import detect_mobile
 @detect_mobile
 def index(request):
     if not request.mobile:
-        return render (request, 'index.html')
+        return render (request, 'core/index.html')
     else:
-        return render (request, 'index_mobile.html')
+        return render (request, 'core/index_mobile.html')
 
 
 def thanks(request):
