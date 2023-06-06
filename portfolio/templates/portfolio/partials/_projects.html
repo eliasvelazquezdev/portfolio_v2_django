@@ -3,36 +3,39 @@
 <section id="projects" style="margin-bottom: 8rem;">
     <div class="row mb-4">
         <h2 class="title">Proyectos</h2>
-        <p>Estos son los distintos proyectos en los que estuve trabajando solo o en equipo.</p>
+        <p>Estos son los distintos proyectos en los que trabajé y/o me encuentro trabajando actualmente.</p>
     </div>
 
     <!-- Proyecto -->
     <div class="row mb-3">
-        <div class="col-12 col-md-6">
-            <h4 class=""><i class="fas fa-briefcase me-2"></i>¿Dónde me atiendo?</h4>
-            <p>Guía de hospitales públicos de la Ciudad Autónoma de Buenos Aires</p>
+        {% for project in projects %}
+        <div class="col-12 col-md-6 mb-4">
+            <h4 class=""><i class="fas fa-briefcase me-2"></i>{{project.title}}</h4>
+            <p>{{project.subtitle}}</p>
             <button class="btn btn-primary"
                     type="button"
                     data-bs-toggle="offcanvas" 
-                    data-bs-target="#offcanvasProject" 
+                    data-bs-target="#offcanvasProject-{{project.id}}"
                     aria-controls="offcanvasProject" 
                     style="background-color: #2a4f9d;">
                     Ver más
             </button>
         </div>
+        {% endfor %}
     </div>
 
-    <aside id="project">
-        <div class="offcanvas offcanvas-end text-light" data-bs-scroll="false" tabindex="-1" id="offcanvasProject" aria-labelledby="offcanvasProject" data-bs-theme="dark">
+    {% for project in projects %}
+    <aside id="project-{{project.id}}">
+        <div class="offcanvas offcanvas-end text-light" data-bs-scroll="false" tabindex="-1" id="offcanvasProject-{{project.id}}" aria-labelledby="offcanvasProject" data-bs-theme="dark">
             <div class="offcanvas-header">
-                <h6 class="offcanvas-title" id="offcanvasProjectLabel">¿Dónde me atiendo?</h6>
+                <h6 class="offcanvas-title" id="offcanvasProjectLabel-{{project.id}}">{{project.title}}</h6>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <hr class="mt-0">
             <div class="offcanvas-body">
-                <img class="img-fluid mb-3 d-block mx-auto" width="600px" src="{% static 'assets/img/proyectos/donde_me_atiendo_thumb1.png' %}" alt="">
-                <h2 class="offcanvas-title" id="offcanvasProjectLabel">¿Dónde me atiendo?</h2>
-                <p class="fw-lighter text-secondary">Guía de hospitales públicos de la Ciudad de Buenos Aires</p>
+                <img class="img-fluid mb-3 d-block mx-auto" width="600px" src="{{project.image.url}}" alt="">
+                <h2 class="offcanvas-title" id="offcanvasProjectLabel">{{project.title}}</h2>
+                <p class="fw-lighter text-secondary">{{project.subtitle}}</p>
         
                 <p class="mb-0">Tecnologías utilizadas</p>
         
@@ -48,13 +51,18 @@
         
                 <h4>Descripción</h4>
         
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur facere non tempore facilis nostrum unde, illum laboriosam hic, sed quo alias eaque, totam expedita exercitationem at dolores quidem debitis doloremque?</p>
+                <p>{{project.description}}</p>
         
                 <div class="col-12 d-flex flex-column">
-                    <a href="#" target="_blank" class="general-link text-decoration-none link-light mb-2"><i class="fas fa-arrow-up-right-from-square me-2"></i>Deploy</a>
-                    <a href="#" target="_blank" class="general-link text-decoration-none link-light"><i class="fab fa-github me-2"></i>Repositorio</a>
+                    
+                    {% if project.url_deploy %}
+                    <a href="{{project.url_deploy}}" target="_blank" class="general-link text-decoration-none link-light mb-2"><i class="fas fa-arrow-up-right-from-square me-2"></i>Deploy</a>
+                    {% endif %}
+                        
+                    <a href="{{project.url_repo}}" target="_blank" class="general-link text-decoration-none link-light"><i class="fab fa-github me-2"></i>Repositorio</a>
                 </div>
             </div>
         </div>
     </aside>
+    {% endfor %}
 </section>

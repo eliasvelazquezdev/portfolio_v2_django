@@ -16,7 +16,7 @@ const formFields = document.querySelectorAll('.form-control');
 const listItems = document.querySelectorAll('.list-group-item');
 const generalLinks = document.querySelectorAll('.general-link');
 const techSkillIconText = document.querySelectorAll('.tech-skill-icon');
-const offCanvasProject = document.getElementById('offcanvasProject');
+const offCanvasProject = document.querySelectorAll('.offcanvas');
 
 // Inicialización de local storage
 let initTheme = localStorage.getItem("theme");
@@ -41,8 +41,11 @@ function lightMode(){
   techSkillIconText.forEach((element)=>{
     element.classList.remove('text-light');
   });
-  offCanvasProject.classList.remove('text-light');
-  offCanvasProject.setAttribute('data-bs-theme','light');
+  offCanvasProject.forEach((element)=>{
+    element.setAttribute('data-bs-theme','light');
+    element.classList.remove('text-light');
+  });
+
   localStorage.setItem("theme", "light");
 };
 
@@ -66,8 +69,11 @@ function darkMode(){
   techSkillIconText.forEach((element)=>{
     element.classList.add('text-light');
   });
-  offCanvasProject.classList.add('text-light');
-  offCanvasProject.setAttribute('data-bs-theme','dark');
+  offCanvasProject.forEach((element)=>{
+    element.classList.add('text-light');
+    element.setAttribute('data-bs-theme','dark');
+  });
+  
   localStorage.setItem("theme", "dark");
 };
 
