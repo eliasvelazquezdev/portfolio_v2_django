@@ -2,45 +2,217 @@
 {% load static %}
 
 
-{% block aside %}
-    <aside>
-        <div class="container w-25 float-start vh-100 overflow-y-scroll overflow-x-hidden p-0 d-md-block d-none">
-            {% include 'core/partials/_header.html' %}
-
-            <!-- Menu -->
-            {% include 'core/partials/_menu.html' %}
-
-            <!-- Competencias -->
-            {% include 'core/partials/_skills.html' %}
-            <hr>
-            <!-- Contacto -->
-            {% include 'core/partials/_contact.html' %}
-        </div>
-    </aside>
-{% endblock aside %}
-    
-
 {% block main_content %}
-   <!-- Cuerpo desktop -->
-    <div class="container-fluid w-75 vh-100 overflow-y-scroll">
-        <div class="row">
-            <div class="col-12 navbar mt-0 pt-0">
-                <img class="img-fluid" src="{% static 'assets/img/banner.png' %}" alt="">
+<div class="container">
+    <div class="row mt-3 mb-3 text-center text-lg-start mx-auto">
+        <div class="col-12 mx-auto mb-4">
+            <h1>¡Hola! Soy Elias Velazquez</h1>
+            <h6 class="fst-italic lead text-secondary">Backend developer apasionado por la tecnología y la música</h6>
+        </div>
+        <div class="col-12 d-flex flex-lg-row flex-column justify-content-between" style="width: 500px;">
+            <a href="{% static '/assets/files/elias_velazquez_backend_cv.pdf' %}" download class="btn link-intro link-light link-opacity-50 mb-2"><i class="fas fa-download me-2"></i>Descargar CV</a>
+
+            <a href="#contact" class="btn link-intro link-light link-opacity-50 mb-2"><i class="fas fa-envelope me-2"></i>Contactar</a>
+
+            <span id="explore-icon" class="mt-2 fw-bold mb-2"><i class="fas fa-arrow-down-wide-short me-2"></i>EXPLORAR</span>
+        </div>
+    </div>
+
+    <br class="mb-5">
+    
+    <div class="row mt-5 mb-5">
+        <div class="col-12 d-flex flex-lg-row flex-column justify-content-evenly align-items-center">
+            <img class="img-fluid mb-3" width="300px" src="{% static '/assets/img/elias_pic1.png' %}" alt="">
+            <div class="mt-3" style="max-width: 500px;">
+                <h2 class="title">SOBRE MÍ</h2>
+                <p class="text-secondary">Oriundo de Buenos Aires &#40;Argentina&#41;, me hallo Incursionando en el mundo de la programación desde hace casi 2 años. Además, soy músico desde hace 8. Cuando no estoy escribiendo código es porque seguramente esté leyendo libros, jugando en línea con amigos o pasando el rato con mis teclados o guitarra.</p>
             </div>
-            
-            {% include 'core/partials/_about.html' %}
+        </div>
+    </div>
+
+    <!-- Competencias -->
+    <section class="mb-3">
+        <div class="text-center mb-3">
+            <h2 class="title fs-6 fw-bold">TECNOLOGÍAS QUE MANEJO</h2>
+            <h3>Te muestro en qué me especializo</h3>
+        </div>
+
+        <div class="d-flex flex-lg-row flex-column justify-content-lg-around align-items-center">
+            <div id="skill-card-front" class="skill-card p-2 mb-4 position-relative">
+                <div class="position-absolute bottom-0 p-2 mb-5">
+                    <p class="title fw-bold">Frontend</p>
+                    <h5>UI Development</h5>
+                    <p class="text-secondary my-0">HTML - CSS - Bootstrap 5</p>
+                    <p class="text-secondary my-0">JavaScript</p>
+                </div>
+            </div>
+            <div id="skill-card-back" class="skill-card p-2 mb-4 position-relative">
+                <div class="position-absolute bottom-0 p-2 mb-5">
+                    <p class="title fw-bold">Backend</p>
+                    <h5>Backend Development</h5>
+                    <p class="text-secondary my-0">Python - Django - MySQL</p>
+                    <br>
+                </div>
+            </div>
+            <div id="skill-card-soft" class="skill-card p-2 mb-4 position-relative">
+                <div class="position-absolute bottom-0 p-2">
+                    <p class="title fw-bold">Soft Skills</p>
+                    <h5>Más sobre mí</h5>
+                    <p class="text-secondary my-0 w-75">Organización y planificación Trabajo en equipo Comunicación efectiva Transparencia</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificados -->
+    <section id="certificates" class="p-lg-5 p-2">
+        <div class="text-center mb-3">
+            <h2 class="title fs-6 fw-bold">EN CONSTANTE APRENDIZAJE</h2>
+            <h3>Cursos y certificaciones</h3>
         </div>
         
-        <hr>
+        <div class="row mb-5">
+            <div class="col-12 certificates-card rounded p-3 d-flex justify-content-between">
+                <div>
+                    <i class="fas fa-graduation-cap me-2" style="color: #2a4f9d"></i>
+                    <h4>Django Web Framework</h4>
+                    <p class="mb-0 fst-italic text-secondary">Coursera - 2023</p>
+                </div>
+                <div>
+                    <img class="rounded-circle img-fluid" src="{% static '/assets/img/django-1.png' %}" alt="" width="75" height="75">
+                </div>
+            </div>
 
-        <!-- Certificados -->
-        {% include 'core/partials/_certificates.html' %}
+        </div>
 
-        <hr>
+        <div class="row mb-5">
+            <div class="col-12 certificates-card rounded p-3 d-flex justify-content-between">
+                <div>
+                    <i class="fas fa-graduation-cap me-2" style="color: #2a4f9d"></i>
+                    <h4>Desarrollo web en Python & Django</h4>
+                    <p class="mb-0 fst-italic text-secondary">Educación IT - 2023</p>
+                </div>
+                <div>
+                    <img class="rounded-circle img-fluid" src="{% static '/assets/img/django-2.png' %}" alt="" width="75" height="75">
+                </div>
+            </div>
+        </div>
 
-        <!-- Proyectos -->
-        {% include 'portfolio/partials/_projects.html' %}
-    </div> 
+        
+        <div class="row mb-5">
+            <div class="col-12 certificates-card rounded p-3 d-flex justify-content-between">
+                <div>
+                    <i class="fas fa-graduation-cap me-2" style="color: #2a4f9d"></i>
+                    <h4>Bootcamp Desarrollo web Full Stack</h4>
+                    <p class="mb-0 fst-italic text-secondary">Fundación Pescar / Educación IT - 2022</p>
+                </div>
+                <div>
+                    <img class="rounded-circle img-fluid" src="{% static '/assets/img/js.png' %}" alt="" width="75" height="75">
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-5">
+            <div class="col-12 certificates-card rounded p-3 d-flex justify-content-between">
+                <div>
+                    <i class="fas fa-graduation-cap me-2" style="color: #2a4f9d"></i>
+                    <h4>Python 3 Master Course</h4>
+                    <p class="mb-0 fst-italic text-secondary">Udemy - 2021</p>
+                </div>
+                <div>
+                    <img class="rounded-circle img-fluid" src="{% static '/assets/img/python.png' %}" alt="" width="75" height="75">
+                </div>
+            </div>
+        </div>
+        <p class="fw-lighter">Te invito a ver el resto de mis certificados haciendo click <a href="https://drive.google.com/drive/folders/1BIe74yPZU3P4QvxfE1Ir1xEZRFm9V1k_?usp=share_link" target="_blank" class="general-link text-decoration-none link-light">aquí</a>.</p>
+
+    </section>
+
+    <!-- Proyectos -->
+    {% include 'portfolio/partials/_projects.html' %}
+
+    <!-- Contacto -->
+    <section id="contact" class="mb-3 px-3">
+        <div class="text-center mb-3">
+            <h2>Estemos en contacto</h2>
+            <h6 class="fst-italic lead text-secondary">Llena el form con tus datos y charlemos</h6>
+        </div>
+        <div class="row mb-3">
+            <div class="col-12 text-center fs-1 d-flex justify-content-center">
+                <a href="https://twitter.com/esvdev" target="_blank"><i class="fab fa-twitter me-5"></i></a>
+                <a href="https://github.com/eliasvelazquezdev" target="_blank"><i class="fab fa-github me-5"></i></a>
+                <a href="https://www.linkedin.com/in/eliassvelazquez/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+        <form method="post" id="form" class="mx-auto px-3" style="margin-bottom: 3rem; max-width: 600px;">
+            <!-- Campos nombre y asunto -->
+            <div class="row mb-3">
+                <div class="col-sm-12 col-md-6 mt-3">
+                    <div class="col-sm-12 ">
+                        <div class="form-floating mb-3">
+                            <input type="text"
+                            class="form-control text-light bg-dark"
+                            id="floatingNameInput"
+                            name="name"
+                            aria-describedby="name-help"
+                            placeholder="Nombre"
+                            required>
+                            <label for="floatingNameInput">Nombre</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-6 mt-3">
+                    <div class="col-sm-12">
+                        <div class="form-floating mb-3">
+                            <input type="text"
+                            class="form-control text-light bg-dark"
+                            id="floatingSubjectInput"
+                            name="subject"
+                            aria-describedby="subject-help"
+                            placeholder="Asunto"
+                            required>
+                            <label for="floatingSubjectInput">Asunto</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Campo email -->
+            <div class="row mb-3">
+                <div class="col-sm-12">
+                    <div class="form-floating mb-3">
+                        <input type="email"
+                        class="form-control text-light bg-dark"
+                        id="floatingEmail"
+                        placeholder="E-mail"
+                        aria-describedby="email-help"
+                        name="email"
+                        required>
+                        <label for="floatingEmail">Correo electrónico</label>
+                    </div>
+                </div>
+            </div>
+            <!-- Campo de texto -->
+            <div class="row mb-3">
+                <div class="col-sm-12">
+                    <div class="form-floating mb-3">
+                        <textarea
+                        id="floatingTextArea"
+                        class="form-control text-light bg-dark"
+                        placeholder="Mensaje"
+                        aria-describedby="msg-help"
+                        name="message"
+                        style= "height: 100px;"
+                        required></textarea>
+                        <label for="floatingTextArea">Mensaje</label>
+                    </div>
+                </div>
+            </div>
+            <!-- Boton de envio -->
+            <button type="submit" id="form-send" class="btn border-light text-light d-block mx-auto" style="background-color: #2a4f9d;">ENVIAR</button>
+        </form>
+    </section>
+</div>
 {% endblock main_content %}
     
     

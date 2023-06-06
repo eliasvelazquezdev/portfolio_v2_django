@@ -12,23 +12,20 @@
     <!-- DevIcons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
     <!-- CSS -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{% static 'assets/ico/esvdev.ico' %}" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/ico/esvdev.ico" type="image/x-icon">
     <title>Portfolio - esvdev</title>
 </head>
-<body id="body" class="text-light bg-dark">
+<body id="body" class="text-light background-dark-mode">
     
-    {% block header %}{% endblock header %}  
-    
-    
-    {% block aside %}{% endblock aside %}
+    {% include 'core/partials/_header.html' %} 
             
     <main>
         {% block main_content %}{% endblock main_content %}
     </main>
     
-    {% block footer %}{% endblock footer %}
+    {% include 'core/partials/_footer.html' %} 
         
 
     <!-- Popper Bootstrap -->

@@ -1,9 +1,44 @@
-<nav>
-    <div class="navbar nav-aside mb-3 px-3 fs-5 d-flex justify-content-between">
-        <span><i class="fas fa-language text-light me-3"></i></span>
-        <div class="form-check form-switch">
-            <span><i class="fas fa-sun text-light"></i></span>
-            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+{% load static %}
+<header>
+    <!-- Navbar -->
+    <nav>
+        <div class="navbar navbar-expand-lg">
+            <div class="container">
+                <div class="d-flex">
+                    <a class="navbar-brand" href="#">
+                        <img src="{% static '/assets/img/EsvDev.png' %}" alt="Logo" width="125" height="30" class="d-inline-block align-text-top">
+                    </a>
+                    <div class="form-check form-switch mt-2 me-3">
+                        <span><i id="sun-icon" class="fas fa-sun text-light"></i></span>
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                    </div>
+                </div>
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                      <li class="nav-item me-lg-2">
+                        <a class="nav-link py-1 px-3 rounded btn link-intro link-light link-opacity-50 mb-2 mb-lg-0" aria-current="page" href="#projects">Proyectos</a>
+                      </li>
+                      <li class="nav-item me-lg-2">
+                        <a class="nav-link py-1 px-3 rounded btn link-intro link-light link-opacity-50 mb-2 mb-lg-0" href="#contact">Contacto</a>
+                      </li>
+                      <li class="nav-item me-lg-2">
+                        <a class="nav-link py-1 px-3 rounded btn link-intro link-light link-opacity-50 mb-2 mb-lg-0" href="#">Blog</a>
+                      </li>
+                      <li class="nav-item me-lg-2">
+                        <span id="translate-button" class="nav-link py-1 px-3 rounded btn link-intro link-light link-opacity-50 mb-2 mb-lg-0"></i>English version</span>
+                      </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
+</header>
+
+<br>
+<br>
+<br>

@@ -1,34 +1,42 @@
 {% load static %}
 
-<section id="projects" style="margin-bottom: 8rem;">
-    <div class="row mb-4">
-        <h2 class="title">Proyectos</h2>
-        <p>Estos son los distintos proyectos en los que trabajé y/o me encuentro trabajando actualmente.</p>
+<section id="projects" class="mb-5">
+    <div class="text-center mb-3">
+        <h2 class="title fs-6 fw-bold">EXPERIENCIA PRÁCTICA APLICADA</h2>
+        <h3>Proyectos</h3>
     </div>
 
     <!-- Proyecto -->
-    <div class="row mb-3">
+    
+    <div class="row mb-3 p-lg-5">
         {% for project in projects %}
-        <div class="col-12 col-md-6 mb-4">
-            <h4 class=""><i class="fas fa-briefcase me-2"></i>{{project.title}}</h4>
-            <p>{{project.subtitle}}</p>
-            <button class="btn btn-primary"
+        <div class="col-lg-6 col-12">
+            <div class="card project-card text-light" style="background-color: rgba(22, 20, 21, 0.8);" >
+                <div class="card-header">
+                    {{project.type}}
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-briefcase me-2" style="color: #2a4f9d"></i>{{project.title}}</h5>
+                    <p class="card-text">{{project.subtitle}}</p>
+                    <button class="btn btn-primary"
                     type="button"
                     data-bs-toggle="offcanvas" 
-                    data-bs-target="#offcanvasProject-{{project.id}}"
+                    data-bs-target="#offcanvasProject{{project.id}}" 
                     aria-controls="offcanvasProject" 
                     style="background-color: #2a4f9d;">
                     Ver más
-            </button>
+                    </button>
+                </div>
+            </div>  
         </div>
         {% endfor %}
     </div>
-
+    
     {% for project in projects %}
-    <aside id="project-{{project.id}}">
-        <div class="offcanvas offcanvas-end text-light" data-bs-scroll="false" tabindex="-1" id="offcanvasProject-{{project.id}}" aria-labelledby="offcanvasProject" data-bs-theme="dark">
+    <aside id="project{{project.id}}">
+        <div class="offcanvas offcanvas-end text-light" data-bs-scroll="false" tabindex="-1" id="offcanvasProject{{project.id}}" aria-labelledby="offcanvasProject" data-bs-theme="dark">
             <div class="offcanvas-header">
-                <h6 class="offcanvas-title" id="offcanvasProjectLabel-{{project.id}}">{{project.title}}</h6>
+                <h6 class="offcanvas-title" id="offcanvasProjectLabel">{{project.title}}</h6>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <hr class="mt-0">
@@ -36,9 +44,9 @@
                 <img class="img-fluid mb-3 d-block mx-auto" width="600px" src="{{project.image.url}}" alt="">
                 <h2 class="offcanvas-title" id="offcanvasProjectLabel">{{project.title}}</h2>
                 <p class="fw-lighter text-secondary">{{project.subtitle}}</p>
-        
+
                 <p class="mb-0">Tecnologías utilizadas</p>
-        
+
                 <div class="fs-3 mb-3">
                     <i class="fab fa-html5 me-2" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="HTML5"></i>
                     <i class="fab fa-css3-alt me-2" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="CSS3"></i>
@@ -46,13 +54,12 @@
                     <i class="fab fa-js me-2" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="JavaScript"></i>
                     <i class="devicon-django-plain me-2" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Django"></i>
                     <i class="devicon-mysql-plain me-2" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="MySQL"></i>
-        
                 </div>
-        
+
                 <h4>Descripción</h4>
-        
+
                 <p>{{project.description}}</p>
-        
+
                 <div class="col-12 d-flex flex-column">
                     
                     {% if project.url_deploy %}
