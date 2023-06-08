@@ -5,7 +5,7 @@
         <div class="navbar navbar-expand-lg">
             <div class="container">
                 <div class="d-flex">
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="{% url 'index' %}">
                         <img src="{% static '/assets/img/EsvDev.png' %}" alt="Logo" width="125" height="30" class="d-inline-block align-text-top">
                     </a>
                     <div class="form-check form-switch mt-2 me-3">
@@ -21,13 +21,13 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                       <li class="nav-item me-lg-2">
-                        <a class="nav-link py-1 px-3 rounded btn link-intro link-light link-opacity-50 mb-2 mb-lg-0" aria-current="page" href="#projects">Proyectos</a>
+                        <a class="nav-link py-1 px-3 rounded btn link-intro link-light link-opacity-50 mb-2 mb-lg-0" aria-current="page" href="{% url 'index' %}#projects">Proyectos</a>
                       </li>
                       <li class="nav-item me-lg-2">
-                        <a class="nav-link py-1 px-3 rounded btn link-intro link-light link-opacity-50 mb-2 mb-lg-0" href="#contact">Contacto</a>
+                        <a class="nav-link py-1 px-3 rounded btn link-intro link-light link-opacity-50 mb-2 mb-lg-0" href="{% url 'index' %}#contact">Contacto</a>
                       </li>
                       <li class="nav-item me-lg-2">
-                        <a class="nav-link py-1 px-3 rounded btn link-intro link-light link-opacity-50 mb-2 mb-lg-0" href="#">Blog</a>
+                        <a class="nav-link py-1 px-3 rounded btn link-intro link-light link-opacity-50 mb-2 mb-lg-0" href="{% url 'blog' %}">Blog</a>
                       </li>
                       <li class="nav-item me-lg-2">
                         <span id="translate-button" class="nav-link py-1 px-3 rounded btn link-intro link-light link-opacity-50 mb-2 mb-lg-0"></i>English version</span>

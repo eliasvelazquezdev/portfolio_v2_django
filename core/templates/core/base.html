@@ -14,10 +14,16 @@
     <!-- CSS -->
     <link rel="stylesheet" href="{% static '/css/style.css' %}">
     <!-- Favicon -->
-    <link rel="shortcut icon" href="/assets/ico/esvdev.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="{% static '/assets/ico/esvdev.ico' %} " type="image/x-icon">
     <title>Portfolio - esvdev</title>
 </head>
+
+{% if 'blog/' in request.path %}
+<body id="body" class="text-light" style="background-color: #071422;">
+{% else %}
 <body id="body" class="text-light background-dark-mode">
+{% endif %}
+    
     
     {% include 'core/partials/_header.html' %} 
             

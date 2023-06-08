@@ -1,0 +1,57 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+
+{% block main_content %}
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col">
+                <div class="d-flex flex-column flex-lg-row justify-content-center align-items-center rounded p-3" style= "background-color: #0b1b2b;">
+                    <div>
+                        <img class="mb-3 mb-lg-0 img-fluid" src="{% static 'assets/img/elias_pic1.png' %}" width=250px alt="">
+                    </div> 
+
+                    <div class="ms-lg-3 ms-0">
+                        <h2>¡Bienvenido/a a mi blog!</h2>
+                        <p style= "max-width: 500px;">Soy Elias, programador autodidacta desde hace 2 años. Me gusta hablar de mi viaje como developer, desarrollo personal, filosofía y por supuesto, desarrollo de software en general.</p>
+
+                        <p style= "max-width: 500px;">Siendo que soy músico y me encantan los videojuegos, muy probablemente hable de estos temas también. Hay de todo un poco acá, así que si algo de lo que digo te gusta o te sirve, me sentiré más que complacido.</p>
+
+                        <div class="fs-5">
+                            <a href="https://twitter.com/esvdev" target="_blank"><i class="fab fa-twitter footer-icon text-light me-3 "></i></a>
+                            <a href="https://www.linkedin.com/in/eliassvelazquez/" target="_blank"><i class="fab fa-linkedin footer-icon text-light me-3"></i></a> 
+                            <a href="https://github.com/eliasvelazquezdev" target="_blank"><i class="fab fa-github text-light footer-icon me-5"></i></a>
+                        </div>  
+                    </div> 
+                </div>
+            </div>
+        </div>
+
+        {% for post in posts  %}
+        <section class="row mb-3">
+            <div class="col-12 d-flex">
+                <div class="text-center me-3" style="max-width: 50px">
+                    {% filter upper %}
+                      <h4>{{post.published|date:"j M y"}}</h4>  
+                    {% endfilter %}
+                    
+                    
+                </div>
+
+                <div class="w-50">
+                     <h4 style="color: #466EC3">{{post.title|title}}</h4>
+                     <p>{{post.content|truncatewords:50}}</p>
+                    
+                    
+                    
+                    
+                </div>
+            </div>
+        </section>
+        
+        {% endfor %}
+    </div>
+
+    
+{% endblock main_content %}
+    
