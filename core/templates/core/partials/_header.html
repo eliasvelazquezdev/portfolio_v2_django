@@ -8,10 +8,13 @@
                     <a class="navbar-brand" href="{% url 'index' %}">
                         <img src="{% static '/assets/img/EsvDev.png' %}" alt="Logo" width="125" height="30" class="d-inline-block align-text-top">
                     </a>
+                    
+                    {% if not 'blog' in request.path %}
                     <div class="form-check form-switch mt-2 me-3">
                         <span><i id="sun-icon" class="fas fa-sun text-light"></i></span>
                         <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
                     </div>
+                    {% endif %}
                 </div>
                 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,9 +32,11 @@
                       <li class="nav-item me-lg-2">
                         <a class="nav-link py-1 px-3 rounded btn link-intro link-light link-opacity-50 mb-2 mb-lg-0" href="{% url 'blog' %}">Blog</a>
                       </li>
+                      {% if not 'blog' in request.path %}
                       <li class="nav-item me-lg-2">
                         <span id="translate-button" class="nav-link py-1 px-3 rounded btn link-intro link-light link-opacity-50 mb-2 mb-lg-0"></i>English version</span>
                       </li>
+                      {% endif %}
                     </ul>
                 </div>
             </div>

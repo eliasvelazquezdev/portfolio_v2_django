@@ -1,0 +1,44 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+
+{% block main_content %}
+    <div class="container">
+        <div class="row" style="max-width: 800px">
+            <div class="col mx-auto rounded p-3 mb-3" style="border: 1px solid #0b1b2b; background-color: #0b1b2b;">
+                {% if post.image %}
+                    <img src="{{post.image.url}}" class="img-fluid mb-3" alt="">
+                {% endif %}
+
+                <h2> {{post.title}} </h2>
+
+                {% filter upper %}
+                    <p>{{post.published|date:"j M Y"}}</p>
+                {% endfilter %}
+
+                <p class="mb-5"> {{post.content|linebreaks}} </p>
+                <hr>
+
+                <div class="d-flex">
+                    <img src="{% static 'assets/img/elias_pic1.png' %}" class="img-fluid me-3" width="100px" alt="">
+                    <div>
+                        <p class="fst-italic text-secondary mb-0">Escrito por</p>
+                        <h4>Elias Velazquez</h4>
+                        <h6 class="text-secondary">Backend Developer | Músico | Nerd de yerbas varias</h6>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <a href=" {% url 'blog' %} " class="text-decoration-none"><i class="fas fa-arrow-left me-2"></i>Volver</a>
+        </div>
+    </div>
+
+
+
+
+
+{% endblock main_content %}
+    

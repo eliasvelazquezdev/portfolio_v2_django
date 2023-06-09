@@ -27,29 +27,54 @@
             </div>
         </div>
 
-        {% for post in posts  %}
-        <section class="row mb-3">
-            <div class="col-12 d-flex">
-                <div class="text-center me-3" style="max-width: 50px">
-                    {% filter upper %}
-                      <h4>{{post.published|date:"j M y"}}</h4>  
-                    {% endfilter %}
-                    
-                    
-                </div>
-
-                <div class="w-50">
-                     <h4 style="color: #466EC3">{{post.title|title}}</h4>
-                     <p>{{post.content|truncatewords:50}}</p>
-                    
-                    
-                    
-                    
-                </div>
+        
+        <section class="row d-flex flex-lg-row flex-column-reverse justify-content-between">
+            <div style="max-width: 1000px">
+                {% for post in posts %}
+                    <article class="col-12 d-flex flex-lg-row flex-column mb-5">
+                        <div class="d-none d-lg-block text-center me-3" style="max-width: 50px">
+                            {% filter upper %}
+                              <h4>{{post.published|date:"j M y"}}</h4>
+                            {% endfilter %}
+                        </div>
+                        <div style="max-width: 800px">
+                             <a href="{% url 'post_id' id=post.id %}" class="text-decoration-none">
+                                 <h4 style="color: #466EC3">{{post.title|title}}</h4>
+                             </a>
+                             <p>
+                                {{post.content|truncatewords:50}}
+                                <a href="{% url 'post_id' id=post.id %}" class="text-decoration-none link-opacity-50-hover" style="color: #466EC3">Leer más</a>
+                             </p> 
+                            <div class="d-lg-none mb-3">
+                                {% filter upper %}
+                                    <h6>{{post.published|date:"j M Y"}}</h6>
+                                {% endfilter %}
+                            </div>
+                
+                            <div class="d-flex">
+                                {% for category in post.categories.all %}
+                                <a href="" class="btn btn-link rounded-pill text-decoration-none me-3 mb-3 link-opacity-25-hover" style="color: #466EC3; border: 1px solid">#{{category.name}}</a>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </article>
+                {% endfor %}
             </div>
+
+            <aside class="rounded p-3 mx-auto mb-3" style= "background-color: #0b1b2b; max-width: 250px">
+                
+                <h5 class="mb-3"><i class="fas fa-filter-list" style="color: #496ba7;"></i>Filtrar por categoría</h5>
+                
+                {% for category in categories %}
+                    
+                    <a href="" class=" d-block text-decoration-none mb-3" style="color: #466EC3">#{{category.name}}</a>
+                    
+                {% endfor %}
+
+            </aside>
         </section>
         
-        {% endfor %}
+
     </div>
 
     
