@@ -38,12 +38,12 @@
                             {% endfilter %}
                         </div>
                         <div style="max-width: 800px">
-                             <a href="{% url 'post_id' id=post.id %}" class="text-decoration-none">
+                             <a href="{% url 'post_view' post_id=post.id %}" class="text-decoration-none">
                                  <h4 style="color: #466EC3">{{post.title|title}}</h4>
                              </a>
                              <p>
                                 {{post.content|truncatewords:50}}
-                                <a href="{% url 'post_id' id=post.id %}" class="text-decoration-none link-opacity-50-hover" style="color: #466EC3">Leer más</a>
+                                <a href="{% url 'post_view' post_id=post.id %}" class="text-decoration-none link-opacity-50-hover" style="color: #466EC3">Leer más</a>
                              </p> 
                             <div class="d-lg-none mb-3">
                                 {% filter upper %}
@@ -53,7 +53,7 @@
                 
                             <div class="d-flex">
                                 {% for category in post.categories.all %}
-                                <a href="" class="btn btn-link rounded-pill text-decoration-none me-3 mb-3 link-opacity-25-hover" style="color: #466EC3; border: 1px solid">#{{category.name}}</a>
+                                <a href="{% url 'category_view' category_id=category.id %}" class="btn btn-link rounded-pill text-decoration-none me-3 mb-3 link-opacity-25-hover" style="color: #466EC3; border: 1px solid">#{{category.name}}</a>
                                 {% endfor %}
                             </div>
                         </div>
@@ -67,7 +67,7 @@
                 
                 {% for category in categories %}
                     
-                    <a href="" class=" d-block text-decoration-none mb-3" style="color: #466EC3">#{{category.name}}</a>
+                    <a href="{% url 'category_view' category_id=category.id %}" class=" d-block text-decoration-none mb-3" style="color: #466EC3">#{{category.name}}</a>
                     
                 {% endfor %}
 
