@@ -41,32 +41,37 @@
             </div>
             <hr class="mt-0">
             <div class="offcanvas-body">
-                <img class="img-fluid mb-3 d-block mx-auto" width="600px" src="{{project.image.url}}" alt="">
+                
+                {% if project.image %}
+                <img class="img-fluid mb-3 d-block mx-auto" width="600px" src="{{project.image.url}}" alt="">  
+                {% endif %}
+                    
                 <h2 class="offcanvas-title" id="offcanvasProjectLabel">{{project.title}}</h2>
                 <p class="fw-lighter text-secondary">{{project.subtitle}}</p>
 
                 <p class="mb-0">Tecnologías utilizadas</p>
 
                 <div class="fs-3 mb-3">
-                    <i class="fab fa-html5 me-2" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="HTML5"></i>
-                    <i class="fab fa-css3-alt me-2" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="CSS3"></i>
-                    <i class="fab fa-bootstrap me-2" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Bootstrap 5"></i>
-                    <i class="fab fa-js me-2" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="JavaScript"></i>
-                    <i class="devicon-django-plain me-2" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Django"></i>
-                    <i class="devicon-mysql-plain me-2" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="MySQL"></i>
+                    {% for tech in project.technologies.all  %}
+                    <i class="{{tech.icon_link}} me-2" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="{{tech.name}}"></i>
+                    {% endfor %}
                 </div>
 
                 <h4>Descripción</h4>
 
-                <p>{{project.description}}</p>
+                <p>{{project.description|linebreaks}}</p>
 
                 <div class="col-12 d-flex flex-column">
                     
                     {% if project.url_deploy %}
                     <a href="{{project.url_deploy}}" target="_blank" class="general-link text-decoration-none link-light mb-2"><i class="fas fa-arrow-up-right-from-square me-2"></i>Deploy</a>
                     {% endif %}
-                        
+                    
+                    
+                    {% if project.url_repo %}
                     <a href="{{project.url_repo}}" target="_blank" class="general-link text-decoration-none link-light"><i class="fab fa-github me-2"></i>Repositorio</a>
+                    {% endif %}
+                        
                 </div>
             </div>
         </div>
