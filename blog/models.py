@@ -4,6 +4,7 @@ from django.utils.timezone import now
 # Create your models here.
 class Category(models.Model):
     name = models.CharField(max_length=50, verbose_name="Categoría")
+    emoji = models.CharField(max_length=50, verbose_name="Emoji", default=0000)
     created = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de creación")
     updated = models.DateTimeField(auto_now_add=True, verbose_name="Fecha de edición")
 

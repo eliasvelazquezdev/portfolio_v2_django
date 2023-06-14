@@ -9,13 +9,13 @@ def blog(request):
     
     return render(request, 'blog/blog.html', ctx )
 
-def post(request, post_id):
+def post(request, post_id, post_slug):
     post = get_object_or_404(Post, id=post_id)
     ctx = {"post" : post}
 
     return render(request, 'blog/post.html', ctx)
 
-def category(request, category_id):
+def category(request, category_id, category_slug):
     category = get_object_or_404(Category, id=category_id)
     ctx = {"category" : category}
 

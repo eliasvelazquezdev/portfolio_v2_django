@@ -9,13 +9,13 @@
                 <div class="ms-lg-3 ms-0">
                     
                     {% if category.name == "General" %}
-                        <h2>Estos son los posts de índole {{category.name|lower}}</h2>
+                        <h2>Estos son los posts de índole {{category.name|lower}} {{category.emoji|safe}}</h2>
                         
                     {% elif category.name == "Recursos" %}
-                            <h2>Acá te comparto {{category.name|lower}}</h2>
+                            <h2>Acá te comparto {{category.name|lower}} {{category.emoji|safe}}</h2>
    
                     {% else %}
-                        <h2>Estos son los posts donde hablo de {{category.name|lower}}</h2>  
+                        <h2>Estos son los posts donde hablo de {{category.name|lower}} {{category.emoji|safe}}</h2>  
 
                     {% endif %}    
                 </div> 
@@ -33,12 +33,12 @@
                         {% endfilter %}
                     </div>
                     <div style="max-width: 800px">
-                         <a href="{% url 'post_view' post_id=post.id %}" class="text-decoration-none">
+                         <a href="{% url 'post_view' post.id post.title|slugify %}" class="text-decoration-none">
                              <h4 style="color: #466EC3">{{post.title|title}}</h4>
                          </a>
                          <p>
                             {{post.content|truncatewords:50}}
-                            <a href="{% url 'post_view' post_id=post.id %}" class="text-decoration-none link-opacity-50-hover" style="color: #466EC3">Leer más</a>
+                            <a href="{% url 'post_view' post.id post.title|slugify %}" class="text-decoration-none link-opacity-50-hover" style="color: #466EC3">Leer más</a>
                          </p> 
                         <div class="d-lg-none mb-3">
                             {% filter upper %}

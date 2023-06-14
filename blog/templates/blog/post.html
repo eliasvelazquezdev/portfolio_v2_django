@@ -17,6 +17,11 @@
                 {% endfilter %}
 
                 <p class="mb-5"> {{post.content|linebreaks}} </p>
+                
+                {% if user.is_authenticated %}
+                    <a href="{% url 'admin:blog_post_change' post.id %}" class="link">Editar</a>
+                {% endif %}
+                    
                 <hr>
 
                 <div class="d-flex">
