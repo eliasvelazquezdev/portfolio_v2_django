@@ -8,6 +8,7 @@ django = "*"
 pillow = "*"
 python-decouple = "*"
 django-mobi2 = "*"
+django-ckeditor = "*"
 
 [dev-packages]
 

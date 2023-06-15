@@ -42,7 +42,7 @@
                                  <h4 style="color: #466EC3">{{post.title|title}}</h4>
                              </a>
                              <p>
-                                {{post.content|truncatewords:50}}
+                                {{post.content|safe|truncatewords:50}}
                                 <a href="{% url 'post_view' post.id post.title|slugify %}" class="text-decoration-none link-opacity-50-hover" style="color: #466EC3">Leer más</a>
                              </p> 
                             <div class="d-lg-none mb-3">

@@ -25,6 +25,7 @@ const projectCard = document.querySelectorAll('.project-card');
 const offCanvasProject = document.querySelectorAll('.offcanvas');
 const footerParagraph = document.getElementById('footer-paragraph');
 const footerIcon = document.querySelectorAll('.footer-icon');
+const blogLink = document.getElementById('blog-link');
 
 // Inicialización de local storage
 let initTheme = localStorage.getItem("theme");
@@ -134,3 +135,6 @@ inputSwitch.forEach(function(e){
   } )
 })
 
+blogLink.addEventListener('click',()=>{
+  darkMode();
+});
