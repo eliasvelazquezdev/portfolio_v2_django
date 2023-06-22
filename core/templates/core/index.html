@@ -144,36 +144,21 @@
                 <a href="https://www.linkedin.com/in/eliassvelazquez/" target="_blank"><i class="fab fa-linkedin"></i></a>
             </div>
         </div>
-        <form method="post" id="form" class="mx-auto px-3" style="margin-bottom: 3rem; max-width: 600px;">
+        <form action="" method="POST" id="form" class="mx-auto px-3" style="margin-bottom: 3rem; max-width: 600px;">
+            {% csrf_token %}
             <!-- Campos nombre y asunto -->
             <div class="row mb-3">
                 <div class="col-sm-12 col-md-6 mt-3">
-                    <div class="col-sm-12 ">
-                        <div class="form-floating mb-3">
-                            <input type="text"
-                            class="form-control text-light bg-dark"
-                            id="floatingNameInput"
-                            name="name"
-                            aria-describedby="name-help"
-                            placeholder="Nombre"
-                            required>
-                            <label for="floatingNameInput">Nombre</label>
-                        </div>
-                    </div>
+                    <div class="form-floating mb-3">
+                        {{form.name}}
+                        {{form.name.label_tag}}
+                    </div>   
                 </div>
 
                 <div class="col-sm-12 col-md-6 mt-3">
-                    <div class="col-sm-12">
-                        <div class="form-floating mb-3">
-                            <input type="text"
-                            class="form-control text-light bg-dark"
-                            id="floatingSubjectInput"
-                            name="subject"
-                            aria-describedby="subject-help"
-                            placeholder="Asunto"
-                            required>
-                            <label for="floatingSubjectInput">Asunto</label>
-                        </div>
+                    <div class="form-floating mb-3">
+                        {{form.subject}}
+                        {{form.subject.label_tag}}
                     </div>
                 </div>
             </div>
@@ -181,14 +166,8 @@
             <div class="row mb-3">
                 <div class="col-sm-12">
                     <div class="form-floating mb-3">
-                        <input type="email"
-                        class="form-control text-light bg-dark"
-                        id="floatingEmail"
-                        placeholder="E-mail"
-                        aria-describedby="email-help"
-                        name="email"
-                        required>
-                        <label for="floatingEmail">Correo electrónico</label>
+                        {{form.email}}
+                        {{form.email.label_tag}}
                     </div>
                 </div>
             </div>
@@ -196,21 +175,19 @@
             <div class="row mb-3">
                 <div class="col-sm-12">
                     <div class="form-floating mb-3">
-                        <textarea
-                        id="floatingTextArea"
-                        class="form-control text-light bg-dark"
-                        placeholder="Mensaje"
-                        aria-describedby="msg-help"
-                        name="message"
-                        style= "height: 100px;"
-                        required></textarea>
-                        <label for="floatingTextArea">Mensaje</label>
+                        {{form.message}}
+                        {{form.message.label_tag}}
                     </div>
                 </div>
             </div>
             <!-- Boton de envio -->
             <button type="submit" id="form-send" class="btn border-light text-light d-block mx-auto" style="background-color: #2a4f9d;">ENVIAR</button>
+            
+            {% if '?contact-fail' in request.path %}
+                <p class="text-danger mt-3">Ocurrió un error al enviar el formulario. Por favor intenta más tarde o contactame a través de mis redes sociales.</p>
+            {% endif %} 
         </form>
+        
     </section>
 </div>
 {% endblock main_content %}
